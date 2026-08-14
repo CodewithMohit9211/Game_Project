@@ -1,0 +1,122 @@
+<!DOCTYPE html> <!-- Defines the document type as HTML5 -->
+<html lang="en"> <!-- Root element of the webpage -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Supports all characters -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes the page responsive on mobile -->
+    
+    <title>Chess: Grandmaster Edition</title> <!-- Title shown in browser tab -->
+
+    <!-- Link to external CSS file for styling -->
+    <link rel="stylesheet" href="stylechess.css">
+</head>
+
+<body> <!-- Main visible content of the webpage -->
+
+    <!-- Player Side Selection Screen -->
+    <div id="side-select" class="side-select">
+        <h2>Choose Your Side</h2>
+        <button id="choose-white" onclick="chooseSide('w')">Play as White</button>
+        <button id="choose-black" onclick="chooseSide('b')">Play as Black</button>
+    </div>
+
+    <!-- Main wrapper that contains the whole chess application -->
+    <div class="app-wrapper">
+
+        <!-- Page Header / Title -->
+        <header>
+            <h1>CHESS<span>PRO</span></h1> <!-- Main game title -->
+        </header>
+
+        <main class="game-area">
+
+            <!-- CHESS BOARD (LEFT SIDE) -->
+            <div class="board-container">
+                <div id="chessboard"></div>
+            </div>
+
+            <!-- RIGHT SIDE PANEL (CONTAINS EVERYTHING) -->
+            <aside class="side-panel right">
+
+                <!-- Black Player -->
+                <div class="player-card" id="player-black">
+                    <div class="avatar">B</div>
+
+                    <div class="player-info">
+                        <b><span class="name">Black Player</span></b>
+                        <div id="black-captured" class="captures"></div>
+                    </div>
+                </div>
+
+                <!-- Game statistics -->
+                <div class="game-stats">
+
+                    <div class="stat-item">
+                        Turn: <span id="current-turn">White</span>
+                    </div>
+
+                    <div id="check-warning" class="check-alert">CHECK!</div>
+
+                </div>
+
+                <!-- Restart button -->
+                <button id="restart-btn">New Match</button>
+
+                <!-- White Player -->
+                <div class="player-card" id="player-white">
+
+                    <div class="avatar">W</div>
+
+                    <div class="player-info">
+                        <b><span class="name">White Player</span></b>
+                        <div id="white-captured" class="captures"></div>
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </main>
+
+    </div>
+
+    <!-- Pawn Promotion Popup Modal -->
+    <div id="promotion-modal" class="modal">
+
+        <!-- Modal content box -->
+        <div class="modal-content">
+
+            <h3>Pawn Promotion</h3> <!-- Title -->
+
+            <!-- Options for pawn promotion -->
+            <div class="promotion-options">
+
+                <!-- Choose Queen -->
+                <div class="promo-choice" onclick="selectPromotion('Q')">
+                    <span>Queen</span>
+                </div>
+
+                <!-- Choose Rook -->
+                <div class="promo-choice" onclick="selectPromotion('R')">
+                    <span>Rook</span>
+                </div>
+
+                <!-- Choose Bishop -->
+                <div class="promo-choice" onclick="selectPromotion('B')">
+                    <span>Bishop</span>
+                </div>
+
+                <!-- Choose Knight -->
+                <div class="promo-choice" onclick="selectPromotion('N')">
+                    <span>Knight</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to JavaScript file that controls the chess game logic -->
+    <script src="stylechess.js"></script>
+
+</body>
+</html>
